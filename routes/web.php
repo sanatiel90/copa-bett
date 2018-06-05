@@ -26,16 +26,38 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::prefix('team')->group(function(){
-	Route::get('/new', 'TeamController@index');
-	Route::post('/store', 'TeamController@store')->name('new_team');
+	Route::get('/', 'TeamController@index')->name('teams');
+	Route::get('/new', 'TeamController@new')->name('new_team');
+	Route::post('/store', 'TeamController@store')->name('save_team');
 });
 
 Route::prefix('player')->group(function(){
-	Route::get('/new', 'PlayerController@index');
-	Route::post('/store', 'PlayerController@store')->name('new_player');
+	Route::get('/', 'PlayerController@index')->name('players');
+	Route::get('/new', 'PlayerController@new')->name('new_player');
+	Route::post('/store', 'PlayerController@store')->name('save_player');
 });
 
+Route::prefix('result')->group(function(){
+	Route::get('/', 'ResultController@index')->name('results');
+	Route::get('/new', 'ResultController@new')->name('new_result');
+	Route::post('/store', 'ResultController@store')->name('save_result');
+});
 
+Route::prefix('rodada')->group(function(){
+	Route::get('/', 'RodadaController@index')->name('rodadas');
+	Route::get('/new', 'RodadaController@new')->name('new_rodada');
+	Route::post('/store', 'RodadaController@store')->name('save_rodada');
+});
+
+Route::prefix('game')->group(function(){
+	Route::get('/', 'GameController@index')->name('games');
+	Route::get('/new', 'GameController@new')->name('new_game');
+	Route::post('/store', 'GameController@store')->name('save_game');
+	Route::get('/edit/{id}', 'GameController@edit')->name('edit_game');
+	Route::post('/update', 'GameController@update')->name('update_game');
+	Route::get('/edit_best/{id}', 'GameController@editBest')->name('edit_best');
+
+});
 
 //rotas do admin
 Route::get('/admin', 'AdminController@index');

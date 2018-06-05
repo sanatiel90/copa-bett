@@ -24,12 +24,12 @@ class CreateGamesTable extends Migration
             $table->foreign('id_team_home')->references('id')->on('teams');
             $table->unsignedInteger('id_team_visit');
             $table->foreign('id_team_visit')->references('id')->on('teams');
-            $table->unsignedInteger('id_rodada');
-            $table->foreign('id_rodada')->references('id')->on('rodadas');
+            $table->unsignedInteger('rodada_id');
+            $table->foreign('rodada_id')->references('id')->on('rodadas');
             $table->unsignedInteger('id_first_score')->nullable();
             $table->foreign('id_first_score')->references('id')->on('players');
-            $table->unsignedInteger('id_result')->nullable();
-            $table->foreign('id_result')->references('id')->on('results');
+            $table->unsignedInteger('result_id')->nullable();
+            $table->foreign('result_id')->references('id')->on('results');
             
             $table->timestamps();
         });

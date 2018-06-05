@@ -3,15 +3,14 @@
 
 @section('content')
 
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Novo jogador</div>
+                <div class="card-header">Nova rodada</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('save_player') }}">
+                    <form method="POST" action="{{ route('save_rodada') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -27,19 +26,8 @@
                                 @endif
                             </div>
                         </div>
-                    
-                        <div class="form-group row">
-                            <label for="team" class="col-md-4 col-form-label text-md-right">Seleção</label>
 
-                            <div class="col-md-6">
-                                <select name="team_id" class="form-control">
-                                    @foreach($teams as $team)
-                                        <option value="{{ $team->id }}"> {{ $team->name }} </option>
-                                    @endforeach
-                                </select>   
-                            </div>                            
-                        </div>
-                    
+                        
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

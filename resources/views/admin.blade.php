@@ -12,13 +12,13 @@
                 <div class="card-body">
                     
                   
-                    <a href="{{ url('/team/new') }}" class="btn btn-primary">Cadastrar seleção</a>
+                    <a href="{{ route('teams') }}" class="btn btn-primary">Seleções</a>
 
                     <a href="{{ url('/new_team') }}" class="btn btn-primary">Cadastrar Resultado</a>
 
                     <a href="{{ url('/new_team') }}" class="btn btn-primary">Cadastrar Rodada</a>
 
-                    <a href="{{ url('/player/new') }}" class="btn btn-primary">Cadastrar jogador</a>
+                    <a href="{{ route('players') }}" class="btn btn-primary">Jogadores</a>
 
                     <a href="{{ url('/new_team') }}" class="btn btn-primary">Cadastrar partida</a>
                 </div>

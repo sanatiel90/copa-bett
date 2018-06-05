@@ -9,6 +9,11 @@ use App\Player;
 class PlayerController extends Controller
 {
     public function index(){
+    	$players = Player::orderBy('team_id')->get();
+    	return view('player.index', ['players' => $players]);
+    }
+
+    public function new(){
     	$teams = Team::all();
     	return view('player.new', ['teams' => $teams]);
     }
@@ -16,6 +21,6 @@ class PlayerController extends Controller
 
     public function store(Request $request){
     	$player = Player::create($request->all());
-    	return redirect('/admin');
+    	return redirect()->route('players');
     }
 }

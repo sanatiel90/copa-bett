@@ -15,10 +15,10 @@ class CreateBetRodadasTable extends Migration
     {
         Schema::create('bet_rodadas', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('users');
-            $table->unsignedInteger('id_rodada');
-            $table->foreign('id_rodada')->references('id')->on('rodadas');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedInteger('rodada_id');
+            $table->foreign('rodada_id')->references('id')->on('rodadas');
             $table->integer('total_points_rodada')->default(0);
             $table->integer('position')->default(0);
             $table->timestamps();

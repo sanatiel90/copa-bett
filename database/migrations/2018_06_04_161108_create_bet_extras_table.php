@@ -15,8 +15,8 @@ class CreateBetExtrasTable extends Migration
     {
         Schema::create('bet_extras', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('id_best_player_cup')->nullable();
             $table->foreign('id_best_player_cup')->references('id')->on('players');
             $table->unsignedInteger('id_best_scorer_cup')->nullable();
