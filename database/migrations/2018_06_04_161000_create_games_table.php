@@ -29,7 +29,7 @@ class CreateGamesTable extends Migration
             $table->unsignedInteger('id_first_score')->nullable();
             $table->foreign('id_first_score')->references('id')->on('players');
             $table->unsignedInteger('result_id')->nullable();
-            $table->foreign('result_id')->references('id')->on('results');
+            $table->foreign('result_id')->references('id')->on('results');           
             
             $table->timestamps();
         });

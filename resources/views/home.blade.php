@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Página Inicial</div>
+                <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,12 +14,548 @@
                         </div>
                     @endif
 
-                  {{ Auth::user()->name }}, Você está logado
+                  <p style="font-size: 1.1rem">Bem vindo, <strong>{{ Auth::user()->name }} </strong>! Você até agora acumulou um total de <strong style="font-size: 1.6rem">40</strong> pontos!</p>                   
 
-                  @if (Auth::user()->profile == 'admin')
-                    <a href="{{ url('/admin') }}" class="btn btn-primary">Opções do admin</a>
+                <div class="row justify-content-center">   <!--  row 1-->
+                  <div class="col-md">
+                  <div class="card">
+                       <div class="card-header">Estatísticas</div>   
+                       <div class="card-body">
+                          <div class="row justify-content-start">
+                              <img src="/img/flags/espanha.png" class="img-responsive" height="42rem" width="60rem">
+                              <p class="align-bottom">É a seleção com maior número de apostas como campeã</p>
+                          </div>
+                          <div class="row justify-content-start">
+                              <strong>Lionel Messi</strong> 
+                              <p class="align-bottom">É o jogador mais apontado como melhor da copa</p>
+                          </div>
+                          <div class="row justify-content-start">
+                              <strong>Neymar</strong> 
+                              <p class="align-bottom">É o jogador mais apontado como artilheiro da copa</p>
+                          </div>
+                       </div>        
+                  </div>
+                  </div>
 
-                  @endif
+                  <div class="col-md">
+                  <div class="card">
+                       <div class="card-header">Estatísticas</div>   
+                       <div class="card-body">
+                          <div class="row justify-content-start">
+                              <img src="/img/flags/espanha.png" class="img-responsive" height="42rem" width="60rem">
+                              <p class="align-bottom">É a seleção com maior número de apostas como campeã</p>
+                          </div>
+                          <div class="row justify-content-start">
+                              <strong>Lionel Messi</strong> 
+                              <p class="align-bottom">É o jogador mais apontado como melhor da copa</p>
+                          </div>
+                          <div class="row justify-content-start">
+                              <strong>Neymar</strong> 
+                              <p class="align-bottom">É o jogador mais apontado como artilheiro da copa</p>
+                          </div>
+                       </div>        
+                  </div>
+                  </div>
+
+                  <div class="col-md">
+                  <div class="card">
+                       <div class="card-header">Ranking geral de pontuação</div>   
+                       <div class="card-body">
+                          <div class="row justify-content-center">
+                              <table class="table table-responsive">
+                                <tr>
+                                  <td>Pos.</td>
+                                  <td>Nome</td>
+                                  <td>Pontos</td>
+                                </tr>
+                                <tr>
+                                  <td>1</td>
+                                  <td>João Lucas</td>
+                                  <td>39</td>
+                                </tr>
+                                <tr>
+                                  <td>2</td>
+                                  <td>Marcelo</td>
+                                  <td>36</td>
+                                </tr>
+                                <tr>
+                                  <td>3</td>
+                                  <td>Kaio Mendes</td>
+                                  <td>28</td>
+                                </tr>
+                              </table>
+                          </div>
+                       </div>        
+                  </div>
+                  </div>
+                </div>  <!--  row 1-->
+
+
+
+                  <!-- card com os jogos do dia -->
+                  <div class="card" style="margin-top: 10px">
+                       <div class="card-header">Jogos de hoje - <?php echo date('d/m/Y') ?></div>   
+                       <div class="card-body">
+                          <div class="row justify-content-center"> 
+                           
+                           
+
+                           <div class="col-sm"> 
+                           <div class="card">   
+                               <div class="card-body">
+                                 
+                                   <div class="col-xs-12">
+                                    <p class="card-text text-center"  style="font-size: 0.8rem; font-weight: bolder;">09:00 - Grupo A</p>
+                                   </div>
+                                   <div class="col-xs-12">
+                                    <p class="card-text text-center" style="font-size: 0.8rem; font-weight: bolder;">Fase de Grupos - Rodada 1</p>
+                                   </div>
+                                   <!-- row -->
+                                   <div class="row justify-content-center"  >
+                                   <!-- time casa -->
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                      <span style="font-size: 1.1rem; ">ARG</span>
+                                    </div>
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                       <img src="/img/flags/argentina.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <!-- placar -->
+                                    <div class="col-xs" style=" padding: 2px; margin-left: 1px; margin-right: 1px">
+                                      <span style="font-size: 1.3rem; font-weight: bolder">3</span>
+                                      <span style="font-size: 1.1rem; font-weight: bolder">x</span>
+                                      <span style="font-size: 1.3rem; font-weight: bolder">2</span>
+                                    </div>
+                                    <!-- time fora -->
+                                    <div class="col-xs"  style="padding: 2px;">
+                                      <img src="/img/flags/espanha.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <div class="col-xs"  style="padding: 2px;">
+                                    <span style="font-size: 1.1rem; ">ESP</span>
+                                    </div> 
+                                   
+                                   </div> <!-- row -->
+
+                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" ><strong>Status:</strong>  Vitória Casa</div>
+                                   </div>
+
+                                   <div class="row justify-content-center " >
+                                     <div class="col-xs" style="width: 100%;"><a href="#" class="btn btn-success btn-md btn-block"><strong>Aposte nesse jogo!</strong> </a></div>
+                                   </div>    
+                                  
+                               </div>  <!-- card-body -->
+                           </div> <!-- card -->
+                           </div> <!-- col-sm -->
+
+                          <div class="col-sm"> 
+                           <div class="card">   
+                               <div class="card-body">
+                                 
+                                 <div class="col-xs-12">
+                                    <p class="card-text text-center"  style="font-size: 0.8rem; font-weight: bolder;">09:00 - Grupo A</p>
+                                   </div>
+                                   <div class="col-xs-12">
+                                    <p class="card-text text-center" style="font-size: 0.8rem; font-weight: bolder;">Fase de Grupos - Rodada 1</p>
+                                   </div>
+                                   <!-- row -->
+                                   <div class="row justify-content-center"  >
+                                   <!-- time casa -->
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                      <span style="font-size: 1.1rem; ">ARG</span>
+                                    </div>
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                       <img src="/img/flags/argentina.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <!-- placar -->
+                                    <div class="col-xs" style=" padding: 2px; margin-left: 1px; margin-right: 1px">
+                                      <span style="font-size: 1.3rem; font-weight: bolder">3</span>
+                                      <span style="font-size: 1.1rem; font-weight: bolder">x</span>
+                                      <span style="font-size: 1.3rem; font-weight: bolder">2</span>
+                                    </div>
+                                    <!-- time fora -->
+                                    <div class="col-xs"  style="padding: 2px;">
+                                      <img src="/img/flags/espanha.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <div class="col-xs"  style="padding: 2px;">
+                                    <span style="font-size: 1.1rem; ">ESP</span>
+                                    </div> 
+                                   
+                                   </div> <!-- row -->
+
+                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" ><strong>Status:</strong>  Vitória Casa</div>
+                                   </div>
+
+                                   <div class="row justify-content-center " >
+                                     <div class="col-xs" style="width: 100%;"><a href="#" class="btn btn-success btn-md btn-block"><strong>Aposte nesse jogo!</strong> </a></div>
+                                   </div>    
+                                  
+                               </div>
+                           </div> <!-- card -->
+                           </div> <!-- col-sm -->
+
+                          <div class="col-sm"> 
+                           <div class="card">   
+                               <div class="card-body">
+                                 
+                                <div class="col-xs-12">
+                                    <p class="card-text text-center"  style="font-size: 0.8rem; font-weight: bolder;">09:00 - Grupo A</p>
+                                   </div>
+                                   <div class="col-xs-12">
+                                    <p class="card-text text-center" style="font-size: 0.8rem; font-weight: bolder;">Fase de Grupos - Rodada 1</p>
+                                   </div>
+                                   <!-- row -->
+                                   <div class="row justify-content-center"  >
+                                   <!-- time casa -->
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                      <span style="font-size: 1.1rem; ">ARG</span>
+                                    </div>
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                       <img src="/img/flags/argentina.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <!-- placar -->
+                                    <div class="col-xs" style=" padding: 2px; margin-left: 1px; margin-right: 1px">
+                                      <span style="font-size: 1.3rem; font-weight: bolder">3</span>
+                                      <span style="font-size: 1.1rem; font-weight: bolder">x</span>
+                                      <span style="font-size: 1.3rem; font-weight: bolder">2</span>
+                                    </div>
+                                    <!-- time fora -->
+                                    <div class="col-xs"  style="padding: 2px;">
+                                      <img src="/img/flags/espanha.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <div class="col-xs"  style="padding: 2px;">
+                                    <span style="font-size: 1.1rem; ">ESP</span>
+                                    </div> 
+                                   
+                                   </div> <!-- row -->
+
+                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" ><strong>Status:</strong>  Vitória Casa</div>
+                                   </div>
+
+                                   <div class="row justify-content-center " >
+                                     <div class="col-xs" style="width: 100%;"><a href="#" class="btn btn-success btn-md btn-block"><strong>Aposte nesse jogo!</strong> </a></div>
+                                   </div>    
+                                  
+                               </div>
+                           </div> <!-- card -->
+                           </div> <!-- col-sm -->
+
+                          <div class="col-sm"> 
+                           <div class="card">   
+                               <div class="card-body">
+                                 
+                              <div class="col-xs-12">
+                                    <p class="card-text text-center"  style="font-size: 0.8rem; font-weight: bolder;">09:00 - Grupo A</p>
+                                   </div>
+                                   <div class="col-xs-12">
+                                    <p class="card-text text-center" style="font-size: 0.8rem; font-weight: bolder;">Fase de Grupos - Rodada 1</p>
+                                   </div>
+                                   <!-- row -->
+                                   <div class="row justify-content-center"  >
+                                   <!-- time casa -->
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                      <span style="font-size: 1.1rem; ">ARG</span>
+                                    </div>
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                       <img src="/img/flags/argentina.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <!-- placar -->
+                                    <div class="col-xs" style=" padding: 2px; margin-left: 1px; margin-right: 1px">
+                                      <span style="font-size: 1.3rem; font-weight: bolder">3</span>
+                                      <span style="font-size: 1.1rem; font-weight: bolder">x</span>
+                                      <span style="font-size: 1.3rem; font-weight: bolder">2</span>
+                                    </div>
+                                    <!-- time fora -->
+                                    <div class="col-xs"  style="padding: 2px;">
+                                      <img src="/img/flags/espanha.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <div class="col-xs"  style="padding: 2px;">
+                                    <span style="font-size: 1.1rem; ">ESP</span>
+                                    </div> 
+                                   
+                                   </div> <!-- row -->
+
+                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" ><strong>Status:</strong>  Vitória Casa</div>
+                                   </div>
+
+                                   <div class="row justify-content-center " >
+                                     <div class="col-xs" style="width: 100%;"><a href="#" class="btn btn-success btn-md btn-block"><strong>Aposte nesse jogo!</strong> </a></div>
+                                   </div>    
+                                  
+                               </div>
+                           </div> <!-- card -->
+                           </div> <!-- col-sm -->
+                           
+
+                         </div> <!-- row main --> 
+
+                         <div class="row justify-content-end ">
+                           <div class="col-xs" style="margin-top: 10px;"><a href="#" class="btn btn-primary">Ver todos os jogos</a></div>
+                         </div>
+
+                       </div> <!-- card-body main -->
+                  </div> <!-- card jogos dia -->
+
+
+
+                  <!-- card com as últimas apostas realizadas-->
+                  <div class="card" style="margin-top: 10px">
+                       <div class="card-header">Suas apostas mais recentes</div>   
+                       <div class="card-body">
+                          <div class="row justify-content-center"> 
+                           
+                           
+
+                           <div class="col-sm"> 
+                           <div class="card">   
+                               <div class="card-body">
+                                 
+                                   <!-- row -->
+                                   <div class="row justify-content-center"  >
+                                   <!-- time casa -->
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                      <span style="font-size: 1.1rem; ">ARG</span>
+                                    </div>
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                       <img src="/img/flags/argentina.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <!-- placar -->
+                                    <div class="col-xs" style=" padding: 2px; margin-left: 1px; margin-right: 1px">
+                                      <span style="font-size: 1.3rem; font-weight: bolder">3</span>
+                                      <span style="font-size: 1.1rem; font-weight: bolder">x</span>
+                                      <span style="font-size: 1.3rem; font-weight: bolder">2</span>
+                                    </div>
+                                    <!-- time fora -->
+                                    <div class="col-xs"  style="padding: 2px;">
+                                      <img src="/img/flags/espanha.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <div class="col-xs"  style="padding: 2px;">
+                                    <span style="font-size: 1.1rem; ">ESP</span>
+                                    </div> 
+                                   
+                                   </div> <!-- row -->
+
+                                   <div class="col-xs">
+                                    <p class="card-text text-center" style="font-size: 0.9rem; font-weight: bolder;">Melhor da partida:</p>      
+                                   </div>
+                                   <div class="row justify-content-center " style="background-color: #FFF8DC; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" ><strong>Lionel Messi</strong></div>
+                                   </div>
+
+                                  <div class="col-xs">
+                                    <p class="card-text text-center" style="font-size: 0.9rem; font-weight: bolder;">Primeiro a marcar:</p>      
+                                   </div>
+                                   <div class="row justify-content-center " style="background-color: #FFF8DC; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" ><strong>Dí Maria</strong></div>
+                                   </div>
+
+                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" >Status:<strong>Em aberto</strong> </div>
+                                   </div>
+
+                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" >Total de pontos obtidos: <strong>-</strong> </div>
+                                   </div>   
+
+                                   <div class="row justify-content-end">
+                                     <div class="col-xs" style="margin-top: 10px;"><a href="#" class="btn btn-sm btn-primary">Detalhar</a></div>
+                                   </div>
+                                  
+                               </div>  <!-- card-body -->
+                           </div> <!-- card -->
+                           </div> <!-- col-sm -->
+
+                          <div class="col-sm"> 
+                           <div class="card">   
+                               <div class="card-body">
+                                 
+                                 <!-- row -->
+                                   <div class="row justify-content-center"  >
+                                   <!-- time casa -->
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                      <span style="font-size: 1.1rem; ">ARG</span>
+                                    </div>
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                       <img src="/img/flags/argentina.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <!-- placar -->
+                                    <div class="col-xs" style=" padding: 2px; margin-left: 1px; margin-right: 1px">
+                                      <span style="font-size: 1.3rem; font-weight: bolder">3</span>
+                                      <span style="font-size: 1.1rem; font-weight: bolder">x</span>
+                                      <span style="font-size: 1.3rem; font-weight: bolder">2</span>
+                                    </div>
+                                    <!-- time fora -->
+                                    <div class="col-xs"  style="padding: 2px;">
+                                      <img src="/img/flags/espanha.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <div class="col-xs"  style="padding: 2px;">
+                                    <span style="font-size: 1.1rem; ">ESP</span>
+                                    </div> 
+                                   
+                                   </div> <!-- row -->
+
+                                   <div class="col-xs">
+                                    <p class="card-text text-center" style="font-size: 0.9rem; font-weight: bolder;">Melhor da partida:</p>      
+                                   </div>
+                                   <div class="row justify-content-center " style="background-color: #FFF8DC; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" ><strong>Lionel Messi</strong></div>
+                                   </div>
+
+                                  <div class="col-xs">
+                                    <p class="card-text text-center" style="font-size: 0.9rem; font-weight: bolder;">Primeiro a marcar:</p>      
+                                   </div>
+                                   <div class="row justify-content-center " style="background-color: #FFF8DC; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" ><strong>Dí Maria</strong></div>
+                                   </div>
+
+                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" >Status:<strong>Em aberto</strong> </div>
+                                   </div>
+
+                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" >Total de pontos obtidos: <strong>-</strong> </div>
+                                   </div>   
+
+                                   <div class="row justify-content-end">
+                                     <div class="col-xs" style="margin-top: 10px;"><a href="#" class="btn btn-sm btn-primary">Detalhar</a></div>
+                                   </div>
+                                  
+                               </div>
+                           </div> <!-- card -->
+                           </div> <!-- col-sm -->
+
+                          <div class="col-sm"> 
+                           <div class="card">   
+                               <div class="card-body">
+                                 
+                                <!-- row -->
+                                   <div class="row justify-content-center"  >
+                                   <!-- time casa -->
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                      <span style="font-size: 1.1rem; ">ARG</span>
+                                    </div>
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                       <img src="/img/flags/argentina.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <!-- placar -->
+                                    <div class="col-xs" style=" padding: 2px; margin-left: 1px; margin-right: 1px">
+                                      <span style="font-size: 1.3rem; font-weight: bolder">3</span>
+                                      <span style="font-size: 1.1rem; font-weight: bolder">x</span>
+                                      <span style="font-size: 1.3rem; font-weight: bolder">2</span>
+                                    </div>
+                                    <!-- time fora -->
+                                    <div class="col-xs"  style="padding: 2px;">
+                                      <img src="/img/flags/espanha.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <div class="col-xs"  style="padding: 2px;">
+                                    <span style="font-size: 1.1rem; ">ESP</span>
+                                    </div> 
+                                   
+                                   </div> <!-- row -->
+
+                                   <div class="col-xs">
+                                    <p class="card-text text-center" style="font-size: 0.9rem; font-weight: bolder;">Melhor da partida:</p>      
+                                   </div>
+                                   <div class="row justify-content-center " style="background-color: #FFF8DC; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" ><strong>Lionel Messi</strong></div>
+                                   </div>
+
+                                  <div class="col-xs">
+                                    <p class="card-text text-center" style="font-size: 0.9rem; font-weight: bolder;">Primeiro a marcar:</p>      
+                                   </div>
+                                   <div class="row justify-content-center " style="background-color: #FFF8DC; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" ><strong>Dí Maria</strong></div>
+                                   </div>
+
+                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" >Status:<strong>Em aberto</strong> </div>
+                                   </div>
+
+                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" >Total de pontos obtidos: <strong>-</strong> </div>
+                                   </div>   
+
+                                   <div class="row justify-content-end">
+                                     <div class="col-xs" style="margin-top: 10px;"><a href="#" class="btn btn-sm btn-primary">Detalhar</a></div>
+                                   </div>
+                                  
+                                  
+                               </div>
+                           </div> <!-- card -->
+                           </div> <!-- col-sm -->
+
+                          <div class="col-sm"> 
+                           <div class="card">   
+                               <div class="card-body">
+                                 
+                              <!-- row -->
+                                   <div class="row justify-content-center"  >
+                                   <!-- time casa -->
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                      <span style="font-size: 1.1rem; ">ARG</span>
+                                    </div>
+                                    <div class="col-xs"  style=" padding: 2px;">
+                                       <img src="/img/flags/argentina.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <!-- placar -->
+                                    <div class="col-xs" style=" padding: 2px; margin-left: 1px; margin-right: 1px">
+                                      <span style="font-size: 1.3rem; font-weight: bolder">3</span>
+                                      <span style="font-size: 1.1rem; font-weight: bolder">x</span>
+                                      <span style="font-size: 1.3rem; font-weight: bolder">2</span>
+                                    </div>
+                                    <!-- time fora -->
+                                    <div class="col-xs"  style="padding: 2px;">
+                                      <img src="/img/flags/espanha.png" class="img-responsive" height="28rem" width="40rem">
+                                    </div>
+                                    <div class="col-xs"  style="padding: 2px;">
+                                    <span style="font-size: 1.1rem; ">ESP</span>
+                                    </div> 
+                                   
+                                   </div> <!-- row -->
+
+                                   <div class="col-xs">
+                                    <p class="card-text text-center" style="font-size: 0.9rem; font-weight: bolder;">Melhor da partida:</p>      
+                                   </div>
+                                   <div class="row justify-content-center " style="background-color: #FFF8DC; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" ><strong>Lionel Messi</strong></div>
+                                   </div>
+
+                                  <div class="col-xs">
+                                    <p class="card-text text-center" style="font-size: 0.9rem; font-weight: bolder;">Primeiro a marcar:</p>      
+                                   </div>
+                                   <div class="row justify-content-center " style="background-color: #FFF8DC; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" ><strong>Dí Maria</strong></div>
+                                   </div>
+
+                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" >Status:<strong>Em aberto</strong> </div>
+                                   </div>
+
+                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
+                                     <div class="col-xs" >Total de pontos obtidos: <strong>-</strong> </div>
+                                   </div>   
+
+                                   <div class="row justify-content-end">
+                                     <div class="col-xs" style="margin-top: 10px;"><a href="#" class="btn btn-sm btn-primary">Detalhar</a></div>
+                                   </div>
+                                  
+                                  
+                               </div>
+                           </div> <!-- card -->
+                           </div> <!-- col-sm -->
+                           
+
+                         </div> <!-- row main --> 
+
+                         <div class="row justify-content-end ">
+                           <div class="col-xs" style="margin-top: 10px;"><a href="#" class="btn btn-primary">Ver todas as apostas</a></div>
+                         </div>
+
+                       </div> <!-- card-body main -->
+                  </div> <!-- card-ultimas apostas -->
+
 
                 </div>
             </div>

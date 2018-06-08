@@ -8,23 +8,25 @@ use App\Rodada;
 use App\Results;
 use App\Player;
 use App\Game;
+use App\Bet;
+use Illuminate\Support\Facades\Auth;
 
-class GameController extends Controller
+class BetController extends Controller
 {
     public function index(){
-    	$games = Game::all();
-    	return view('game.index', ['games' => $games]);
+    	$bets = Bet::where('user_id', Auth::user()->id);
+    	return view('bet.index', ['bets' => $bets]);
     }
 
-    public function new(){
-    	$teams = Team::all();
+    public function new(Request $request){
+    	$game = Game::find($request->id);
     	$results = Results::all();
-    	$rodadas = Rodada::all();
-    	return view('game.new', ['teams' => $teams, 'results' => $results, 'rodadas' => $rodadas ]);
+    	$players = Player::whereIn('team_id', [$game->id_team_home, $game->id_team_visit])->orderBy('team_id')->orderBy('name')->get();
+    	return view('bet.new', ['results' => $results, 'players' => $players, 'game' => $game ]);
     }
 
 
-    public function store(Request $request){
+    /*public function store(Request $request){
     	$game = Game::create($request->all());
     	return redirect()->route('games');
     }
@@ -60,5 +62,5 @@ class GameController extends Controller
     	//falta validacoes, como verificar se time casa está igual time fora
     	$game->delete();
     	return redirect()->route('games');
-    }
+    }*/
 }
