@@ -18,6 +18,7 @@ class CreateTeamsTable extends Migration
             $table->string('name');
             $table->string('short_name')->nullable();
             $table->string('img_name')->nullable();
+            //$table->string('group')->nullable(); 
             $table->timestamps();
         });
     }

@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Definir melhor jogador e primeiro marcador da partida</div>
+                <div class="card-header">Definir melhor jogador e primeiro marcador da partida  </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('update_game') }}">
@@ -93,16 +93,24 @@
                         </div>
 
 
+
                         <div class="form-group row">
                             <label for="team-visit" class="col-md-4 col-form-label text-md-right">Melhor Jogador</label>
 
                             <div class="col-md-6">
                                 <select name="id_best_player" class="form-control">
                                      @foreach($players as $player)
+
                                             @if ($game->id_best_player == $player->id )
-                                                <option value="{{ $player->id }}" selected> {{ $player->name }} </option> 
+                                                <option value="{{ $player->id }}" selected>          
+                                                    {{ $player->team->short_name }}-
+                                                    {{ $player->name }} 
+                                                </option> 
                                             @else    
-                                                <option value="{{ $player->id }}"> {{ $player->name }} </option> 
+                                                <option value="{{ $player->id }}"> 
+                                                    {{ $player->team->short_name }}-
+                                                    {{ $player->name }} 
+                                                </option> 
                                             @endif 
                                      @endforeach   
                                 </select>  
@@ -115,11 +123,18 @@
 
                             <div class="col-md-6">
                                 <select name="id_first_score" class="form-control">
+                                     <option value=""> Não houve </option>
                                      @foreach($players as $player)
                                             @if ($game->id_first_score == $player->id )
-                                                <option value="{{ $player->id }}" selected> {{ $player->name }} </option> 
+                                                <option value="{{ $player->id }}" selected> 
+                                                  {{ $player->team->short_name }}-
+                                                  {{ $player->name }}
+                                                </option> 
                                             @else
-                                                <option value="{{ $player->id }}"> {{ $player->name }} </option>
+                                                <option value="{{ $player->id }}"> 
+                                                  {{ $player->team->short_name }}-
+                                                  {{ $player->name }}
+                                                </option>
                                             @endif    
                                      @endforeach   
                                 </select>   

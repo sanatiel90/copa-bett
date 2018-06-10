@@ -30,7 +30,18 @@
                                 <td>{{ $game->goals_team_visit }}</td>
                                 <td>{{ $game->rodada->name }}</td>
                                 <td>{{ $game->result->name }}</td>
+                                <td>
+                                    @foreach ($game->playersBest as $player)    
+                                        {{ $player->name }}
+                                    @endforeach      
+                                </td>
+                                <td>
+                                    @foreach ($game->playersFirstScore as $player)    
+                                        {{ $player->name }}
+                                    @endforeach 
+                                </td>
                                 <td><a href="{{ url('game/edit/') }}/{{$game->id}}" class="btn btn-sm btn-primary" >Editar</a></td>
+                                <td><a href="{{ url('game/delete/') }}/{{$game->id}}" class="btn btn-sm btn-danger" >Apagar</a></td>
                                 <td><a href="{{ url('game/edit_best/') }}/{{$game->id}}">Adicionar Melhor Jogador e Primeiro Marcador</a></td>
                             </tr>                  
                         @endforeach

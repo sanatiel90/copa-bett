@@ -56,7 +56,17 @@ Route::prefix('game')->group(function(){
 	Route::get('/edit/{id}', 'GameController@edit')->name('edit_game');
 	Route::post('/update', 'GameController@update')->name('update_game');
 	Route::get('/edit_best/{id}', 'GameController@editBest')->name('edit_best');
+	Route::get('/delete/{id}', 'GameController@delete')->name('delete_game');
+});
 
+
+Route::prefix('bet')->group(function(){
+	Route::get('/', 'BetController@index')->name('bets');
+	Route::get('/new', 'BetController@new')->name('new_bet');
+	Route::post('/store', 'BetController@store')->name('save_bet');
+	Route::get('/edit/{id}', 'BetController@edit')->name('edit_bet');
+	Route::post('/update', 'BetController@update')->name('update_bet');
+	Route::get('/delete/{id}', 'BetController@delete')->name('delete_bet');
 });
 
 //rotas do admin

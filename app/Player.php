@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Player extends Model
 {
     protected $fillable = [
-    	'name', 'team_id'
+    	'name', 'team_id', 'position'
     ];
 
 
@@ -20,5 +20,9 @@ class Player extends Model
     	return $this->belongsToMany('App\Game');
     }
 
+
+    public function bets(){
+    	return $this->belongsToMany('App\Bet');
+    }
 
 }

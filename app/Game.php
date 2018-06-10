@@ -20,10 +20,6 @@ class Game extends Model
     }
 
 
-    public function players(){
-    	return $this->belongsToMany('App\Player','id_best_player');
-    }
-
    /* relacao many to many, args:
 	* 1- Model 1
 	* 2- tabela q vai fazer a juncao entre o model (Team) e o model atual (Game)
@@ -38,4 +34,17 @@ class Game extends Model
     	return $this->belongsToMany('App\Team', 'games', 'id', 'id_team_visit');
     }
 
+
+    public function playersBest(){
+    	return $this->belongsToMany('App\Player','games', 'id', 'id_best_player');
+    }
+
+
+    public function playersFirstScore(){
+    	return $this->belongsToMany('App\Player','games', 'id', 'id_first_score');
+    }
+
+    public function bets(){
+        return $this->hasMany('App\Bet');
+    }
 }

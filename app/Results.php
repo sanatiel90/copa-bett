@@ -14,4 +14,8 @@ class Results extends Model
     public function games(){
     	return $this->hasMany('App\Game');
     }
+
+    public function bets(){
+        return $this->hasMany('App\Bet');
+    }
 }
