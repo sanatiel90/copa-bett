@@ -60,6 +60,13 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ url('/home') }}">Home</a>
                                     </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ url('/home') }}">Minhas apostas</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ url('/home') }}">Minha pontuação</a>
+                                    </li>
                                 @endif 
                          @endguest          
                     </ul>
