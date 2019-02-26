@@ -44,7 +44,7 @@ class GameController extends Controller
     	$results = Results::all();
     	$rodadas = Rodada::all();
     	$players = Player::whereIn('team_id', [$game->id_team_home, $game->id_team_visit])->orderBy('team_id')->orderBy('name')->get(); 
-    	return view('game.edit_best', ['game' => $game, 'teams' => $teams, 'results' => $results, 'rodadas' => $rodadas        						,'players' => $players ]);
+    	return view('game.edit_best', ['game' => $game, 'teams' => $teams, 'results' => $results, 'rodadas' => $rodadas   		,'players' => $players ]);
     
         }
 

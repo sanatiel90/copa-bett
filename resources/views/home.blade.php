@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                  <p style="font-size: 1.1rem">Bem vindo, <strong>{{ Auth::user()->name }} </strong>! Você até agora acumulou um total de <strong style="font-size: 1.6rem">40</strong> pontos!</p>                   
+                  <p style="font-size: 1.1rem">Bem vindo, <strong>{{ Auth::user()->name }} </strong>! Você até agora acumulou um total de <strong style="font-size: 1.6rem">{{ Auth::user()->points }}</strong> pontos!</p>                   
 
                 
                   <!-- -->
@@ -25,45 +25,60 @@
                        <div class="card-body">
                           <div class="row justify-content-center"> 
                            
-                           
-
-                           <div class="col-sm"> 
+                          @forelse ($games as $game)
+                          <div class="col-sm"> 
                            <div class="card">   
                                <div class="card-body">
                                  
                                    <div class="col-xs-12">
-                                    <p class="card-text text-center"  style="font-size: 0.8rem; font-weight: bolder;">09:00 - Grupo A</p>
+                                    <p class="card-text text-center"  style="font-size: 0.8rem; font-weight: bolder;">{{ $game->game_date }} - Grupo @foreach($game->teams as $team) {{ $team->group }}  @endforeach </p>
                                    </div>
                                    <div class="col-xs-12">
-                                    <p class="card-text text-center" style="font-size: 0.8rem; font-weight: bolder;">Fase de Grupos - Rodada 1</p>
+                                    <p class="card-text text-center" style="font-size: 0.8rem; font-weight: bolder;">{{ $game->rodada->name }}</p>
                                    </div>
                                    <!-- row -->
                                    <div class="row justify-content-center"  >
                                    <!-- time casa -->
                                     <div class="col-xs"  style=" padding: 2px;">
-                                      <span style="font-size: 1.1rem; ">ARG</span>
+                                      <span style="font-size: 1.1rem; ">
+                                        @foreach ($game->teams as $team)    
+                                          {{ $team->short_name }}
+                                        @endforeach
+                                      </span>
                                     </div>
                                     <div class="col-xs"  style=" padding: 2px;">
-                                       <img src="/img/flags/argentina.png" class="img-responsive" height="28rem" width="40rem">
+                                        @foreach($game->teams as $team)
+                                          <img src="/img/flags/{{$team->img_name}}.png" class="img-responsive" height="28rem" width="40rem">
+                                        @endforeach                                  
                                     </div>
                                     <!-- placar -->
                                     <div class="col-xs" style=" padding: 2px; margin-left: 1px; margin-right: 1px">
-                                      <span style="font-size: 1.3rem; font-weight: bolder">3</span>
+                                      <span style="font-size: 1.3rem; font-weight: bolder">
+                                          {{$game->goals_team_home}} 
+                                      </span>
                                       <span style="font-size: 1.1rem; font-weight: bolder">x</span>
-                                      <span style="font-size: 1.3rem; font-weight: bolder">2</span>
+                                      <span style="font-size: 1.3rem; font-weight: bolder">
+                                          {{$game->goals_team_visit}} 
+                                      </span>
                                     </div>
                                     <!-- time fora -->
                                     <div class="col-xs"  style="padding: 2px;">
-                                      <img src="/img/flags/espanha.png" class="img-responsive" height="28rem" width="40rem">
+                                        @foreach($game->teamsVisit as $team)
+                                          <img src="/img/flags/{{$team->img_name}}.png" class="img-responsive" height="28rem" width="40rem">
+                                        @endforeach
                                     </div>
                                     <div class="col-xs"  style="padding: 2px;">
-                                    <span style="font-size: 1.1rem; ">ESP</span>
+                                    <span style="font-size: 1.1rem; ">
+                                        @foreach ($game->teamsVisit as $team)    
+                                          {{ $team->short_name }}
+                                        @endforeach
+                                    </span>
                                     </div> 
                                    
                                    </div> <!-- row -->
 
                                    <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
-                                     <div class="col-xs" ><strong>Status:</strong>  Vitória Casa</div>
+                                     <div class="col-xs" ><strong>Status:</strong> {{ $game->result->name}}</div>
                                    </div>
 
                                    <div class="row justify-content-center " >
@@ -74,146 +89,18 @@
                            </div> <!-- card -->
                            </div> <!-- col-sm -->
 
+                           
+                          @empty
+
                           <div class="col-sm"> 
-                           <div class="card">   
+                             <div class="card">   
                                <div class="card-body">
-                                 
-                                 <div class="col-xs-12">
-                                    <p class="card-text text-center"  style="font-size: 0.8rem; font-weight: bolder;">09:00 - Grupo A</p>
-                                   </div>
-                                   <div class="col-xs-12">
-                                    <p class="card-text text-center" style="font-size: 0.8rem; font-weight: bolder;">Fase de Grupos - Rodada 1</p>
-                                   </div>
-                                   <!-- row -->
-                                   <div class="row justify-content-center"  >
-                                   <!-- time casa -->
-                                    <div class="col-xs"  style=" padding: 2px;">
-                                      <span style="font-size: 1.1rem; ">ARG</span>
-                                    </div>
-                                    <div class="col-xs"  style=" padding: 2px;">
-                                       <img src="/img/flags/argentina.png" class="img-responsive" height="28rem" width="40rem">
-                                    </div>
-                                    <!-- placar -->
-                                    <div class="col-xs" style=" padding: 2px; margin-left: 1px; margin-right: 1px">
-                                      <span style="font-size: 1.3rem; font-weight: bolder">3</span>
-                                      <span style="font-size: 1.1rem; font-weight: bolder">x</span>
-                                      <span style="font-size: 1.3rem; font-weight: bolder">2</span>
-                                    </div>
-                                    <!-- time fora -->
-                                    <div class="col-xs"  style="padding: 2px;">
-                                      <img src="/img/flags/espanha.png" class="img-responsive" height="28rem" width="40rem">
-                                    </div>
-                                    <div class="col-xs"  style="padding: 2px;">
-                                    <span style="font-size: 1.1rem; ">ESP</span>
-                                    </div> 
-                                   
-                                   </div> <!-- row -->
-
-                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
-                                     <div class="col-xs" ><strong>Status:</strong>  Vitória Casa</div>
-                                   </div>
-
-                                   <div class="row justify-content-center " >
-                                     <div class="col-xs" style="width: 100%;"><a href="#" class="btn btn-success btn-md btn-block"><strong>Aposte nesse jogo!</strong> </a></div>
-                                   </div>    
-                                  
-                               </div>
+                                  <h3>Não há jogos marcados para hoje</h3>
+                               </div>  <!-- card-body -->
                            </div> <!-- card -->
                            </div> <!-- col-sm -->
 
-                          <div class="col-sm"> 
-                           <div class="card">   
-                               <div class="card-body">
-                                 
-                                <div class="col-xs-12">
-                                    <p class="card-text text-center"  style="font-size: 0.8rem; font-weight: bolder;">09:00 - Grupo A</p>
-                                   </div>
-                                   <div class="col-xs-12">
-                                    <p class="card-text text-center" style="font-size: 0.8rem; font-weight: bolder;">Fase de Grupos - Rodada 1</p>
-                                   </div>
-                                   <!-- row -->
-                                   <div class="row justify-content-center"  >
-                                   <!-- time casa -->
-                                    <div class="col-xs"  style=" padding: 2px;">
-                                      <span style="font-size: 1.1rem; ">ARG</span>
-                                    </div>
-                                    <div class="col-xs"  style=" padding: 2px;">
-                                       <img src="/img/flags/argentina.png" class="img-responsive" height="28rem" width="40rem">
-                                    </div>
-                                    <!-- placar -->
-                                    <div class="col-xs" style=" padding: 2px; margin-left: 1px; margin-right: 1px">
-                                      <span style="font-size: 1.3rem; font-weight: bolder">3</span>
-                                      <span style="font-size: 1.1rem; font-weight: bolder">x</span>
-                                      <span style="font-size: 1.3rem; font-weight: bolder">2</span>
-                                    </div>
-                                    <!-- time fora -->
-                                    <div class="col-xs"  style="padding: 2px;">
-                                      <img src="/img/flags/espanha.png" class="img-responsive" height="28rem" width="40rem">
-                                    </div>
-                                    <div class="col-xs"  style="padding: 2px;">
-                                    <span style="font-size: 1.1rem; ">ESP</span>
-                                    </div> 
-                                   
-                                   </div> <!-- row -->
-
-                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
-                                     <div class="col-xs" ><strong>Status:</strong>  Vitória Casa</div>
-                                   </div>
-
-                                   <div class="row justify-content-center " >
-                                     <div class="col-xs" style="width: 100%;"><a href="#" class="btn btn-success btn-md btn-block"><strong>Aposte nesse jogo!</strong> </a></div>
-                                   </div>    
-                                  
-                               </div>
-                           </div> <!-- card -->
-                           </div> <!-- col-sm -->
-
-                          <div class="col-sm"> 
-                           <div class="card">   
-                               <div class="card-body">
-                                 
-                              <div class="col-xs-12">
-                                    <p class="card-text text-center"  style="font-size: 0.8rem; font-weight: bolder;">09:00 - Grupo A</p>
-                                   </div>
-                                   <div class="col-xs-12">
-                                    <p class="card-text text-center" style="font-size: 0.8rem; font-weight: bolder;">Fase de Grupos - Rodada 1</p>
-                                   </div>
-                                   <!-- row -->
-                                   <div class="row justify-content-center"  >
-                                   <!-- time casa -->
-                                    <div class="col-xs"  style=" padding: 2px;">
-                                      <span style="font-size: 1.1rem; ">ARG</span>
-                                    </div>
-                                    <div class="col-xs"  style=" padding: 2px;">
-                                       <img src="/img/flags/argentina.png" class="img-responsive" height="28rem" width="40rem">
-                                    </div>
-                                    <!-- placar -->
-                                    <div class="col-xs" style=" padding: 2px; margin-left: 1px; margin-right: 1px">
-                                      <span style="font-size: 1.3rem; font-weight: bolder">3</span>
-                                      <span style="font-size: 1.1rem; font-weight: bolder">x</span>
-                                      <span style="font-size: 1.3rem; font-weight: bolder">2</span>
-                                    </div>
-                                    <!-- time fora -->
-                                    <div class="col-xs"  style="padding: 2px;">
-                                      <img src="/img/flags/espanha.png" class="img-responsive" height="28rem" width="40rem">
-                                    </div>
-                                    <div class="col-xs"  style="padding: 2px;">
-                                    <span style="font-size: 1.1rem; ">ESP</span>
-                                    </div> 
-                                   
-                                   </div> <!-- row -->
-
-                                   <div class="row justify-content-center " style="background-color: #ADD8E6; margin-top: 5px; margin-bottom: 5px; border: solid 0.5px;">
-                                     <div class="col-xs" ><strong>Status:</strong>  Vitória Casa</div>
-                                   </div>
-
-                                   <div class="row justify-content-center " >
-                                     <div class="col-xs" style="width: 100%;"><a href="#" class="btn btn-success btn-md btn-block"><strong>Aposte nesse jogo!</strong> </a></div>
-                                   </div>    
-                                  
-                               </div>
-                           </div> <!-- card -->
-                           </div> <!-- col-sm -->
+                          @endforelse
                            
 
                          </div> <!-- row main --> 

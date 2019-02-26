@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Game;
+use App\Bet;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $games = Game::limit(4)->get(); 
+        $bets = Bet::where('user_id', Auth::user()->id)->limit(4)->get();
+
+        return view('home', ['games' => $games, 'bets' => $bets ]);
     }
 }
